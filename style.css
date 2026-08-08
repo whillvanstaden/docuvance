@@ -1900,12 +1900,11 @@ footer.footer {
         justify-content: center;
     }
 
-    .logo img {
-        width: auto;
-        height: 85px;
-        max-width: 180px;
-    }
-
+   .logo img {
+    width: auto;
+    height: 115px;
+    max-width: 240px;
+}
     .nav-links {
         width: 100%;
         margin: 0;
