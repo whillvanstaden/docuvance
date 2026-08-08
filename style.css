@@ -2413,3 +2413,27 @@ footer.footer {
     }
 
 }
+/* =========================================================
+   MOBILE HEADER — LARGER DOCUVANCE LOGO
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    header .logo {
+        width: 260px;
+        height: 100px;
+        transform: none;
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header .logo img {
+        width: auto;
+        height: 180px;
+        max-width: none;
+        display: block;
+    }
+
+}
