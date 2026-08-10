@@ -2436,7 +2436,7 @@ header .logo img {
 max-width: 330px !important;
     min-width: 0 !important;
     height: auto !important;
-    max-height: 100px !important;
+    max-height: none !important;
     display: block !important;
     margin: 0 auto !important;
     transform: none !important;
