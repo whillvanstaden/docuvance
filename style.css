@@ -2410,10 +2410,6 @@ footer.footer {
     }
 
 }
-/* =========================================================
-   MOBILE HEADER — LARGE DOCUVANCE LOGO
-   ========================================================= */
-
 @media (max-width: 768px) {
 
     header .logo {
@@ -2431,16 +2427,16 @@ footer.footer {
         box-sizing: border-box !important;
     }
 
-header .logo img {
- width: 330px !important;
-max-width: 330px !important;
-    min-width: 0 !important;
-    height: auto !important;
-    max-height: none !important;
-    display: block !important;
-    margin: 0 auto !important;
-    transform: none !important;
-}
+    header .logo img {
+        width: 400px !important;
+        max-width: none !important;
+        min-width: 400px !important;
+        height: auto !important;
+        max-height: none !important;
+        display: block !important;
+        margin: 0 auto !important;
+        transform: none !important;
+    }
 
     header .nav-links {
         width: 100% !important;
