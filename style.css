@@ -2446,3 +2446,7 @@ footer.footer {
     }
 
 }
+/* Darker text under Let's get your document started */
+.section-description {
+    color: #5a5a5a;
+}
