@@ -90,27 +90,93 @@ orderButtons.forEach(button => {
 // SELECT SERVICE
 // =============================
 
-function selectService(serviceName) {
+function selectService(packageName) {
 
-    const option = [...serviceSelect.options].find(
-        option => option.value === serviceName
-    );
+    const packages = {
+        Basic: {
+            name: "Basic",
+            price: "350",
+            label: "Basic CV — R350"
+        },
 
-    if (!option) return;
+        Professional: {
+            name: "Professional",
+            price: "500",
+            label: "Professional CV — R500"
+        },
 
-    serviceSelect.value = serviceName;
+        Premium: {
+            name: "Premium",
+            price: "650",
+            label: "Premium CV — R650"
+        }
+    };
 
+    const selectedPackage = packages[packageName];
+
+    if (!selectedPackage) return;
+
+
+    // Find the matching option in the service dropdown
+    let option = [...serviceSelect.options].find(option => {
+
+        const value = option.value.trim().toLowerCase();
+        const text = option.textContent.trim().toLowerCase();
+        const packageText = selectedPackage.name.toLowerCase();
+
+        return (
+            value === packageText ||
+            text.startsWith(packageText)
+        );
+
+    });
+
+
+    // If the package option does not exist, create it
+    if (!option) {
+
+        option = document.createElement("option");
+
+        option.value = selectedPackage.name;
+        option.textContent = selectedPackage.label;
+
+        serviceSelect.appendChild(option);
+
+    }
+
+
+    // Make absolutely sure the correct package price is used
+    option.dataset.price = selectedPackage.price;
+    option.textContent = selectedPackage.label;
+
+
+    // Select the package automatically
+    serviceSelect.value = option.value;
+
+
+    // Update the price and summary
     updateOrderTotal();
 
+
+    // Close the package modal
     const modal = document.getElementById("cvModal");
 
     if (modal) {
         modal.classList.remove("show");
     }
 
-    document.getElementById("order").scrollIntoView({
-        behavior: "smooth"
-    });
+
+    // Move the customer to the order form
+    const orderSection = document.getElementById("order");
+
+    if (orderSection) {
+
+        orderSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
 
 }
 // =============================
@@ -125,11 +191,14 @@ packageButtons.forEach(button => {
 
         e.preventDefault();
 
-        selectService(this.dataset.package);
+        const packageName = this.dataset.package;
+
+        selectService(packageName);
 
     });
 
 });
+
 // =============================
 // SUBMIT TO WHATSAPP
 // =============================
